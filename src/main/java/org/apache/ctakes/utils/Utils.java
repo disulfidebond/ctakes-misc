@@ -20,6 +20,7 @@ package org.apache.ctakes.utils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.ctakes.core.cr.XMIReader;
@@ -30,8 +31,6 @@ import org.apache.uima.fit.factory.CollectionReaderFactory;
  * Various useful classes and methods.
  */
 public class Utils {
-  
-  public static final String embeddingPath = "/Users/dima/Boston/Vectors/Python/sharp-arg-head-word-vectors.txt";
   
   /**
    * Instantiate an XMI collection reader.
@@ -47,6 +46,8 @@ public class Utils {
 
     String[] paths = new String[fileNames.size()];
     fileNames.toArray(paths);
+    
+    System.out.println("File list:" + Arrays.toString(paths));
 
     return CollectionReaderFactory.createReader(
         XMIReader.class,
