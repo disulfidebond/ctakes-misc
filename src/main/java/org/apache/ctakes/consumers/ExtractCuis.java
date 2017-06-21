@@ -103,9 +103,9 @@ public class ExtractCuis {
 
       List<String> cuis = new ArrayList<>();
       for (EventMention eventMention : JCasUtil.select(systemView, EventMention.class)) {
-        String text = eventMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
-        String semanticType = eventMention.getClass().getSimpleName();
-        int polarity = eventMention.getPolarity();
+        // String text = eventMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
+        // String semanticType = eventMention.getClass().getSimpleName();
+        // int polarity = eventMention.getPolarity();
         for(String code : getOntologyConceptCodes(eventMention)) {
           // String output = String.format("%s|%s|%s", code, text, semanticType);
           String output = String.format("%s", code);
@@ -114,9 +114,9 @@ public class ExtractCuis {
       }
 
       for (EntityMention entityMention : JCasUtil.select(systemView, EntityMention.class)) {
-        String text = entityMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
-        String semanticType = entityMention.getClass().getSimpleName();
-        int polarity = entityMention.getPolarity();
+        // String text = entityMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
+        // String semanticType = entityMention.getClass().getSimpleName();
+        // int polarity = entityMention.getPolarity();
         for(String code : getOntologyConceptCodes(entityMention)) {
           // String output = String.format("%s|%s|%s", code, text, semanticType);
           String output = String.format("%s", code);
