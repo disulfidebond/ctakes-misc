@@ -189,6 +189,7 @@ public class UmlsLookupPipeline {
     @Override
     public void process( JCas jCas ) throws AnalysisEngineProcessException {
       String documentID = new File( ViewUriUtil.getURI( jCas ) ).getPath();
+      System.out.println("\nprocessing: " + documentID);
       DocumentID documentIDAnnotation = new DocumentID( jCas );
       documentIDAnnotation.setDocumentID( documentID );
       documentIDAnnotation.addToIndexes();
