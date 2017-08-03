@@ -29,8 +29,6 @@ import java.util.Set;
 
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
-import org.apache.ctakes.typesystem.type.textsem.EntityMention;
-import org.apache.ctakes.typesystem.type.textsem.EventMention;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.ctakes.utils.Utils;
 import org.apache.uima.analysis_engine.AnalysisEngine;
@@ -51,11 +49,14 @@ import com.lexicalscope.jewel.cli.CliFactory;
 import com.lexicalscope.jewel.cli.Option;
 
 /**
- * Read cTAKES annotations from XMI files.
- *  
- * @author dmitriy dligach
+ * Read cTAKES annotations from XMI files and write CUI sequences to files.
+ * This needs to be confirmed, but most likely this class prints
+ * CUIs in the same order in which they occur in the text.
+ * TODO: Think about the 'ascending colon cancer' scenario.
+ * TODO: Do we output the same CUIs twice for multiple semantic types?
+ * TODO: Currently returning a set of CUIs for a concept. How does it affect word2vec?
  */
-public class ExtractCuis {
+public class ExtractCuiSequences {
 
   static interface Options {
 
@@ -77,7 +78,7 @@ public class ExtractCuis {
     AnalysisEngine annotationConsumer = AnalysisEngineFactory.createEngine(CuiPrinter.class, "OutputDir", options.getOutputDir());
     SimplePipeline.runPipeline(collectionReader, annotationConsumer);
   }
-  
+
   /**
    * Print events and entities.
    */
@@ -100,28 +101,19 @@ public class ExtractCuis {
       }
 
       List<String> cuis = new ArrayList<>();
-      for (EventMention eventMention : JCasUtil.select(systemView, EventMention.class)) {
-        // String text = eventMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
-        // String semanticType = eventMention.getClass().getSimpleName();
-        // int polarity = eventMention.getPolarity();
-        for(String code : getOntologyConceptCodes(eventMention)) {
-          // String output = String.format("%s|%s|%s", code, text, semanticType);
-          String output = String.format("%s", code);
+      
+      // extract the CUIs as a sequence-preserving list
+      for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
+        String text = identifiedAnnotation.getCoveredText().toLowerCase().replaceAll(" ", "_");
+        int polarity = identifiedAnnotation.getPolarity();
+        
+        for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
+          String output = String.format("%s%s|%s", (polarity == 1) ? "" : "n" , code, text);
           cuis.add(output);
         }
       }
-
-      for (EntityMention entityMention : JCasUtil.select(systemView, EntityMention.class)) {
-        // String text = entityMention.getCoveredText().toLowerCase().replaceAll(" ", "_");
-        // String semanticType = entityMention.getClass().getSimpleName();
-        // int polarity = entityMention.getPolarity();
-        for(String code : getOntologyConceptCodes(entityMention)) {
-          // String output = String.format("%s|%s|%s", code, text, semanticType);
-          String output = String.format("%s", code);
-          cuis.add(output);
-        }
-      }
-
+      
+      // turn cuis into a string and write to file
       File noteFile = new File(ViewUriUtil.getURI(jCas).toString());
       String fileName = noteFile.getName();
       String outputString = String.join(" ", cuis);
@@ -134,6 +126,7 @@ public class ExtractCuis {
 
     /**
      * Get the CUIs, RxNorm codes, etc.
+     * Returns an empty set if no codes found for this annotation.
      */
     public static Set<String> getOntologyConceptCodes(IdentifiedAnnotation identifiedAnnotation) {
 
