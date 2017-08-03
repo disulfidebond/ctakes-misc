@@ -52,7 +52,7 @@ import com.lexicalscope.jewel.cli.Option;
 
 /**
  * Read cTAKES annotations from XMI files.
- *  
+ * ExtractCuisSequences.java should probably be used instead of this.
  * @author dmitriy dligach
  */
 public class ExtractCuis {

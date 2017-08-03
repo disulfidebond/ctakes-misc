@@ -106,9 +106,8 @@ public class ExtractCuiSequences {
       for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
         String text = identifiedAnnotation.getCoveredText().toLowerCase().replaceAll(" ", "_");
         int polarity = identifiedAnnotation.getPolarity();
-        
         for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
-          String output = String.format("%s%s|%s", (polarity == 1) ? "" : "n" , code, text);
+          String output = String.format("%s%s", (polarity == 1) ? "" : "n" , code);
           cuis.add(output);
         }
       }
