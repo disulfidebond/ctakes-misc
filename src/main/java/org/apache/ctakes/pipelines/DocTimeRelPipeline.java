@@ -9,7 +9,6 @@ import java.util.List;
 import org.apache.ctakes.chunker.ae.Chunker;
 import org.apache.ctakes.chunker.ae.DefaultChunkCreator;
 import org.apache.ctakes.chunker.ae.adjuster.ChunkAdjuster;
-import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory;
 import org.apache.ctakes.constituency.parser.ae.ConstituencyParser;
 import org.apache.ctakes.contexttokenizer.ae.ContextDependentTokenizerAnnotator;
 import org.apache.ctakes.core.ae.OverlapAnnotator;
@@ -18,6 +17,7 @@ import org.apache.ctakes.core.ae.SimpleSegmentAnnotator;
 import org.apache.ctakes.core.ae.TokenizerAnnotatorPTB;
 import org.apache.ctakes.core.resource.FileLocator;
 import org.apache.ctakes.dependency.parser.ae.ClearNLPDependencyParserAE;
+import org.apache.ctakes.dependency.parser.ae.ClearNLPSemanticRoleLabelerAE;
 import org.apache.ctakes.dictionary.lookup2.ae.DefaultJCasTermAnnotator;
 import org.apache.ctakes.lvg.ae.LvgAnnotator;
 import org.apache.ctakes.postagger.POSTagger;
@@ -82,17 +82,7 @@ public class DocTimeRelPipeline {
 
     CollectionReader reader = UriCollectionReader.getCollectionReaderFromFiles(files);
     AnalysisEngine engine = getXMIWritingPreprocessorAggregateBuilder().createAggregate();
-    // AnalysisEngine engine = getFastPipeline().createAggregate();
     SimplePipeline.runPipeline(reader, engine);
-  }
-
-  protected static AggregateBuilder getFastPipeline() throws Exception {
-
-    AggregateBuilder aggregateBuilder = new AggregateBuilder();
-
-    aggregateBuilder.add(ClinicalPipelineFactory.getFastPipeline());
-
-    return aggregateBuilder;
   }
 
   protected static AggregateBuilder getXMIWritingPreprocessorAggregateBuilder()
@@ -115,12 +105,12 @@ public class DocTimeRelPipeline {
         "org/apache/ctakes/core/sentdetect/sd-med-model.zip" ) );
 
     // identify tokens
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription( TokenizerAnnotatorPTB.class ) );
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(TokenizerAnnotatorPTB.class));
     // merge some tokens
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription( ContextDependentTokenizerAnnotator.class ) );
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ContextDependentTokenizerAnnotator.class));
 
     // identify part-of-speech tags
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         POSTagger.class,
         TypeSystemDescriptionFactory.createTypeSystemDescription(),
         TypePrioritiesFactory.createTypePriorities( Segment.class, Sentence.class, BaseToken.class ),
@@ -128,32 +118,32 @@ public class DocTimeRelPipeline {
         "org/apache/ctakes/postagger/models/mayo-pos.zip" ) );
 
     // identify chunks
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         Chunker.class,
         Chunker.CHUNKER_MODEL_FILE_PARAM,
         FileLocator.getFile( "org/apache/ctakes/chunker/models/chunker-model.zip" ),
         Chunker.CHUNKER_CREATOR_CLASS_PARAM,
-        DefaultChunkCreator.class ) );
+        DefaultChunkCreator.class));
 
     // identify UMLS named entities
 
     // adjust NP in NP NP to span both
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         ChunkAdjuster.class,
         ChunkAdjuster.PARAM_CHUNK_PATTERN,
         new String[] { "NP", "NP" },
         ChunkAdjuster.PARAM_EXTEND_TO_INCLUDE_TOKEN,
-        1 ) );
+        1));
     // adjust NP in NP PP NP to span all three
     aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
         ChunkAdjuster.class,
         ChunkAdjuster.PARAM_CHUNK_PATTERN,
         new String[] { "NP", "PP", "NP" },
         ChunkAdjuster.PARAM_EXTEND_TO_INCLUDE_TOKEN,
-        2 ) );
+        2));
     // add lookup windows for each NP
     aggregateBuilder
-    .add( AnalysisEngineFactory.createEngineDescription( CopyNPChunksToLookupWindowAnnotations.class ) );
+    .add( AnalysisEngineFactory.createEngineDescription(CopyNPChunksToLookupWindowAnnotations.class ) );
     // maximize lookup windows
     aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
         OverlapAnnotator.class,
@@ -166,18 +156,20 @@ public class DocTimeRelPipeline {
         "ActionType",
         "DELETE",
         "DeleteAction",
-        new String[] { "selector=B" } ) );
+        new String[] { "selector=B" }));
     // add UMLS on top of lookup windows
-    aggregateBuilder.add( LvgAnnotator.createAnnotatorDescription() );
-    aggregateBuilder.add( DefaultJCasTermAnnotator.createAnnotatorDescription() );
+    aggregateBuilder.add(LvgAnnotator.createAnnotatorDescription());
+    aggregateBuilder.add(DefaultJCasTermAnnotator.createAnnotatorDescription());
 
     // add dependency parser
-    aggregateBuilder.add( ClearNLPDependencyParserAE.createAnnotatorDescription() );
+    aggregateBuilder.add(ClearNLPDependencyParserAE.createAnnotatorDescription());
 
     // add ctakes constituency parses to system view
-    aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription( ConstituencyParser.class,
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ConstituencyParser.class,
         ConstituencyParser.PARAM_MODEL_FILENAME,
-        "org/apache/ctakes/constituency/parser/models/thyme.bin" ) );
+        "org/apache/ctakes/constituency/parser/models/thyme.bin"));
+    
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ClearNLPSemanticRoleLabelerAE.class));
     
     aggregateBuilder.add(EventAnnotator.createAnnotatorDescription());
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CopyPropertiesToTemporalEventAnnotator.class));
