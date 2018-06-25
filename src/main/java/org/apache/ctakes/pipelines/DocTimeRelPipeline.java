@@ -162,12 +162,12 @@ public class DocTimeRelPipeline {
     aggregateBuilder.add(DefaultJCasTermAnnotator.createAnnotatorDescription());
 
     // add dependency parser
-    aggregateBuilder.add(ClearNLPDependencyParserAE.createAnnotatorDescription());
+    // aggregateBuilder.add(ClearNLPDependencyParserAE.createAnnotatorDescription());
 
     // add ctakes constituency parses to system view
-    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ConstituencyParser.class,
-        ConstituencyParser.PARAM_MODEL_FILENAME,
-        "org/apache/ctakes/constituency/parser/models/thyme.bin"));
+    // aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ConstituencyParser.class,
+    //     ConstituencyParser.PARAM_MODEL_FILENAME,
+    //     "org/apache/ctakes/constituency/parser/models/thyme.bin"));
     
     // aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ClearNLPSemanticRoleLabelerAE.class));
     aggregateBuilder.add(BackwardsTimeAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/timeannotator/model.jar"));
