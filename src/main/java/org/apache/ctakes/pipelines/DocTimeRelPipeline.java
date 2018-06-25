@@ -170,7 +170,7 @@ public class DocTimeRelPipeline {
     //     "org/apache/ctakes/constituency/parser/models/thyme.bin"));
     
     // aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ClearNLPSemanticRoleLabelerAE.class));
-    aggregateBuilder.add(BackwardsTimeAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/timeannotator/model.jar"));
+    // aggregateBuilder.add(BackwardsTimeAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/timeannotator/model.jar"));
     
     aggregateBuilder.add(EventAnnotator.createAnnotatorDescription());
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CopyPropertiesToTemporalEventAnnotator.class));
