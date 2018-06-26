@@ -113,7 +113,7 @@ public class DocTimeRelPipeline {
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         POSTagger.class,
         TypeSystemDescriptionFactory.createTypeSystemDescription(),
-        TypePrioritiesFactory.createTypePriorities( Segment.class, Sentence.class, BaseToken.class ),
+        TypePrioritiesFactory.createTypePriorities(Segment.class, Sentence.class, BaseToken.class ),
         POSTagger.POS_MODEL_FILE_PARAM,
         "org/apache/ctakes/postagger/models/mayo-pos.zip" ) );
 
@@ -121,7 +121,7 @@ public class DocTimeRelPipeline {
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         Chunker.class,
         Chunker.CHUNKER_MODEL_FILE_PARAM,
-        FileLocator.getFile( "org/apache/ctakes/chunker/models/chunker-model.zip" ),
+        FileLocator.getFile("org/apache/ctakes/chunker/models/chunker-model.zip"),
         Chunker.CHUNKER_CREATOR_CLASS_PARAM,
         DefaultChunkCreator.class));
 
@@ -172,9 +172,9 @@ public class DocTimeRelPipeline {
     // aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ClearNLPSemanticRoleLabelerAE.class));
     // aggregateBuilder.add(BackwardsTimeAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/timeannotator/model.jar"));
     
-    aggregateBuilder.add(EventAnnotator.createAnnotatorDescription());
-    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CopyPropertiesToTemporalEventAnnotator.class));
-    aggregateBuilder.add(DocTimeRelAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/doctimerel/model.jar"));
+    // aggregateBuilder.add(EventAnnotator.createAnnotatorDescription());
+    // aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CopyPropertiesToTemporalEventAnnotator.class));
+    // aggregateBuilder.add(DocTimeRelAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/doctimerel/model.jar"));
     
     // write out the CAS after all the above annotations
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
