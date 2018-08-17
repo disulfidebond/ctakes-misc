@@ -170,8 +170,8 @@ public class UmlsLookupPipeline {
     aggregateBuilder.add( LvgAnnotator.createAnnotatorDescription() );
 
     // the following two AEs slow down the pipeline significantly when input file are large
-    aggregateBuilder.add( PolarityCleartkAnalysisEngine.createAnnotatorDescription() );
-    aggregateBuilder.add( UncertaintyCleartkAnalysisEngine.createAnnotatorDescription() );
+    // aggregateBuilder.add( PolarityCleartkAnalysisEngine.createAnnotatorDescription() );
+    // aggregateBuilder.add( UncertaintyCleartkAnalysisEngine.createAnnotatorDescription() );
 
     // write out the CAS after all the above annotations
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
