@@ -29,6 +29,7 @@ import org.apache.ctakes.typesystem.type.textspan.Segment;
 import org.apache.ctakes.typesystem.type.textspan.Sentence;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_engine.AnalysisEngine;
+import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.impl.XmiCasSerializer;
 import org.apache.uima.collection.CollectionReader;
@@ -171,8 +172,11 @@ public class UmlsLookupPipeline {
 
     // the following two AEs slow down the pipeline significantly when input file are large
     // aggregateBuilder.add( PolarityCleartkAnalysisEngine.createAnnotatorDescription() );
-    // aggregateBuilder.add( UncertaintyCleartkAnalysisEngine.createAnnotatorDescription() );
-
+    // aggregateBuilder.add( UncertaintyCleartkAnalysisEngine.createAnnotatorDescription() );  
+    
+    aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
+        "desc/NegationAnnotator"));    
+            
     // write out the CAS after all the above annotations
     aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(
         XMIWriter.class,
