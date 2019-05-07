@@ -124,14 +124,14 @@ public class UmlsLookupPipeline {
 
     // originally we had FileLocator.locateFile( "org/apache/ctakes/chunker/models/chunker-model.zip" )
     // but this failed to locate the chunker model, so using the absolute path
-    String absolutePathToChunkerModel = System.getenv("CTAKES_HOME") + 
+    String absolutePathToChunkerModel = System.getenv("CTAKES_HOME") +
         "ctakes-chunker-res/src/main/resources/org/apache/ctakes/chunker/models/chunker-model.zip";
     aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription(
         Chunker.class,
         Chunker.CHUNKER_MODEL_FILE_PARAM,
         FileLocator.locateFile(absolutePathToChunkerModel),
         Chunker.CHUNKER_CREATOR_CLASS_PARAM,
-        DefaultChunkCreator.class ) );    
+        DefaultChunkCreator.class ) );
 
     // identify UMLS named entities
 

@@ -104,10 +104,9 @@ public class ExtractCuiSequences {
       
       // extract the CUIs as a sequence-preserving list
       for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
-        String text = identifiedAnnotation.getCoveredText().toLowerCase().replaceAll(" ", "_");
         int polarity = identifiedAnnotation.getPolarity();
         for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
-          String output = String.format("%s%s", (polarity == 1) ? "" : "n" , code);
+          String output = String.format("%s%s", (polarity == 0) ? "" : "n" , code);
           cuis.add(output);
         }
       }
@@ -133,6 +132,7 @@ public class ExtractCuiSequences {
 
       FSArray fsArray = identifiedAnnotation.getOntologyConceptArr();
       if(fsArray == null) {
+        // not a umls entity, e.g. fraction annotation
         return codes;
       }
 
