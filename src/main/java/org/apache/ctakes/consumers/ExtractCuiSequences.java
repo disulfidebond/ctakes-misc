@@ -106,6 +106,7 @@ public class ExtractCuiSequences {
       for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
         int polarity = identifiedAnnotation.getPolarity();
         for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
+          // polarity -1 for negated concepts and 0 for others
           String output = String.format("%s%s", (polarity == 0) ? "" : "n" , code);
           cuis.add(output);
         }
