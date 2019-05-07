@@ -101,9 +101,17 @@ public class ExtractCuiSequences {
       }
 
       List<String> cuis = new ArrayList<>();
-      
+
+      int currentOffset = 0;
+
       // extract the CUIs as a sequence-preserving list
       for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
+
+        if(identifiedAnnotation.getBegin() < currentOffset) {
+          System.out.println("annotation out of order:" + identifiedAnnotation);
+        }
+        currentOffset = identifiedAnnotation.getBegin();
+
         int polarity = identifiedAnnotation.getPolarity();
         for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
           // polarity -1 for negated concepts and 0 for others
