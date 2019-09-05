@@ -2,10 +2,11 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java" line="107" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/DocTimeRelPipeline.java" line="176" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa3f4daf-a1cf-4f98-89f3-7a1d0260b8ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,21 +20,21 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/UmlsLookupPipeline.java">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/DocTimeRelPipeline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="177" column="19" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="19" />
+            <state relative-caret-position="187">
+              <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/DocTimeRelPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+            <state relative-caret-position="692">
+              <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -44,6 +45,8 @@
     <findStrings>
       <find>negat</find>
       <find>outputdir</find>
+      <find>sente</find>
+      <find>input</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -54,6 +57,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/UmlsLookupPipeline.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/DocTimeRelPrinter.java" />
       </list>
     </option>
   </component>
@@ -78,140 +82,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/ctakes-misc.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
-        <option value="$PROJECT_DIR$/.idea/encodings.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__args4j_args4j_2_0_16.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__cc_mallet_mallet_2_0_7.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_carrotsearch_hppc_0_4_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_10_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_armbrust_file_utils_sqlwrapper_0_0_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_clearnlp_clearnlp_1_3_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_java_diff_utils_diffutils_1_3_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_lexicalscope_jewelcli_jewelcli_0_8_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__com_rubiconproject_oss_jchronic_0_2_6.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_api_1_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__de_bwaldvogel_liblinear_1_94.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__de_tudarmstadt_ukp_dkpro_core_de_tudarmstadt_ukp_dkpro_core_api_metadata_asl_1_6_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__de_tudarmstadt_ukp_dkpro_core_de_tudarmstadt_ukp_dkpro_core_api_resources_asl_1_6_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__edu_mit_findstruct_findstructapi_0_0_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__edu_mit_jwi_2_2_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__gov_nih_nlm_nls_lvg_lvgdist_2016_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__info_bethard_timenorm_0_9_5.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_regexp_jakarta_regexp_1_4.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__jdom_jdom_1_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_trove4j_trove4j_2_0_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_ctakesresources_ctakes_resources_lvg2008_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_ctakesresources_ctakes_resources_sno_rx_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_jregex_jregex_1_2_01.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_openai_openaifsm_0_0_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__no_arktekk_anti_xml_2_11_0_6_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_4_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_assertion_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_assertion_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_chunker_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_chunker_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_clinical_pipeline_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_clinical_pipeline_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_constituency_parser_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_constituency_parser_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_context_tokenizer_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_core_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_core_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_dependency_parser_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_dependency_parser_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_dictionary_lookup_fast_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_dictionary_lookup_fast_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_lvg_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_lvg_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_ne_contexts_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_ne_contexts_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_pos_tagger_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_pos_tagger_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_preprocessor_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_relation_extractor_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_relation_extractor_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_temporal_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_temporal_res_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_type_system_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ctakes_ctakes_utils_4_0_1_SNAPSHOT.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ivy_ivy_2_3_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_4_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_snowball_3_0_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_3_0_5.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_opennlp_opennlp_maxent_3_0_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_opennlp_opennlp_tools_1_7_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_opennlp_opennlp_uima_1_7_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_jVinci_2_10_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimafit_core_2_4_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimafit_cpe_2_4_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimaj_adapter_vinci_2_10_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimaj_core_2_10_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimaj_cpe_2_10_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_uima_uimaj_document_annotation_2_10_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_beanshell_bsh_2_0b4.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_corpus_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_eval_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_feature_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_crfsuite_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_liblinear_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_libsvm_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_mallet_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_opennlp_maxent_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_svmlight_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_ml_tksvmlight_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_opennlp_tools_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_snowball_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_timeml_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_token_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_type_system_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_cleartk_cleartk_util_2_0_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_5_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_5_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_2_0_6.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_hsqldb_hsqldb_2_3_4.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_6.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_2_0_2.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_legacy_1_1_3.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_library_2_11_7.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_tools_sbinary_sbinary_2_9_0_0_4_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_12_RELEASE.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_12_RELEASE.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_12_RELEASE.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_12_RELEASE.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_12_RELEASE.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_tukaani_xz_1_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__tw_edu_ntu_csie_libsvm_3_1.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" />
-        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-        <option value="$PROJECT_DIR$/.idea/dictionaries/Dima.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="28" />
-    <option name="y" value="25" />
-    <option name="width" value="2506" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="185" />
+    <option name="y" value="28" />
+    <option name="width" value="2226" />
     <option name="height" value="1412" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -220,8 +94,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -280,7 +154,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.apache.ctakes.consumers" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -294,7 +174,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ExtractCuiSequences">
+  <component name="RunManager" selected="Application.DocTimeRelPipeline">
+    <configuration name="DocTimeRelPipeline" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.apache.ctakes.pipelines.DocTimeRelPipeline" />
+      <module name="ctakes-misc" />
+      <option name="PROGRAM_PARAMETERS" value="--input-dir $PROJECT_DIR$/../../../Data/Comorbidity/Text/Test/ --output-dir $USER_HOME$/Temp/Xmi/" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.apache.ctakes.pipelines.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DocTimeRelPrinter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.apache.ctakes.consumers.DocTimeRelPrinter" />
+      <module name="ctakes-misc" />
+      <option name="PROGRAM_PARAMETERS" value="--xmi-dir $USER_HOME$/Temp/Xmi/ --output-dir $USER_HOME$/Temp/Dtr/" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.apache.ctakes.consumers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExtractCuiSequences" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.apache.ctakes.consumers.ExtractCuiSequences" />
       <module name="ctakes-misc" />
@@ -351,10 +259,14 @@
     <list>
       <item itemvalue="Application.ExtractCuiSequences" />
       <item itemvalue="Application.UmlsLookupPipeline" />
+      <item itemvalue="Application.DocTimeRelPipeline" />
+      <item itemvalue="Application.DocTimeRelPrinter" />
       <item itemvalue="Maven.ctakes-misc [compile]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DocTimeRelPipeline" />
+        <item itemvalue="Application.DocTimeRelPrinter" />
         <item itemvalue="Application.ExtractCuiSequences" />
         <item itemvalue="Application.UmlsLookupPipeline" />
       </list>
@@ -364,16 +276,16 @@
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
+    <frame x="185" y="28" width="2226" height="1412" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14825119" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17124543" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19727892" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19090909" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -381,12 +293,12 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.16099773" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32955405" />
-      <window_info active="true" anchor="right" x="0" y="0" width="590" height="1217" id="Documentation" sideWeight="0.50037795" side_tool="true" visible="true" weight="0.18282989" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" sideWeight="0.49962208" visible="true" weight="0.18282989" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.49962208" visible="true" weight="0.20787546" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info active="true" anchor="right" x="0" y="0" width="590" height="1217" id="Documentation" order="5" sideWeight="0.50037795" side_tool="true" visible="true" weight="0.18282989" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -394,24 +306,49 @@
     <option name="LAST_COMMIT_MESSAGE" value="clarified polarity settings in comments" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuis.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/UmlsLookupPipeline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-241">
-          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+        <state relative-caret-position="18">
+          <caret line="106" column="21" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/UmlsLookupPipeline.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ctakes/ctakes-temporal/4.0.1-SNAPSHOT/ctakes-temporal-4.0.1-20190426.123443-117.jar!/org/apache/ctakes/temporal/pipelines/FullTemporalExtractionPipeline.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="177" column="19" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="19" />
+        <state relative-caret-position="180">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="101" column="22" selection-start-line="101" selection-end-line="102" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/ExtractCuiSequences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+        <state relative-caret-position="681">
+          <caret line="117" column="26" lean-forward="true" selection-start-line="117" selection-end-line="118" />
+          <folding>
+            <element signature="docComment;class#ExtractCuiSequences#0" />
+            <element signature="class#Options#0;class#ExtractCuiSequences#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/consumers/DocTimeRelPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/ctakes/pipelines/DocTimeRelPipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
         </state>
       </provider>
     </entry>
