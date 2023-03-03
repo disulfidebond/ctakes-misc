@@ -22,14 +22,15 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
+import org.apache.ctakes.core.cc.AbstractFileWriter;
+import org.apache.ctakes.core.util.doc.DocIdUtil;
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
+import org.apache.ctakes.typesystem.type.structured.DocumentID;
+import org.apache.ctakes.typesystem.type.structured.DocumentPath;
 import org.apache.ctakes.utils.Utils;
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -113,17 +114,23 @@ public class ExtractCuiSequences {
         currentOffset = identifiedAnnotation.getBegin();
 
         int polarity = identifiedAnnotation.getPolarity();
-        for(String code : getOntologyConceptCodes(identifiedAnnotation)) {
+
+        for(String code : getOntologyConceptCodesAsLHS(identifiedAnnotation)) {
           // polarity -1 for negated concepts and 0 for others
-          String output = String.format("%s%s", (polarity == 0) ? "" : "n" , code);
+          String output = String.format("%s", (polarity == 0) ? "\"\",\"\"\n" : code); // trying out CUI and preferred text
           cuis.add(output);
         }
+
       }
       
       // turn cuis into a string and write to file
-      File noteFile = new File(ViewUriUtil.getURI(jCas).toString());
+      String noteFileString = DocIdUtil.getDocumentID(jCas);
+      String outFileString = noteFileString+".cuis.txt";
+
+      File noteFile = new File(outFileString);
+
       String fileName = noteFile.getName();
-      String outputString = String.join(" ", cuis);
+      String outputString = String.join("", cuis);
       try {
         Files.write(Paths.get(outputDir + fileName), outputString.getBytes());
       } catch (IOException e) {
@@ -135,30 +142,34 @@ public class ExtractCuiSequences {
      * Get the CUIs, RxNorm codes, etc.
      * Returns an empty set if no codes found for this annotation.
      */
-    public static Set<String> getOntologyConceptCodes(IdentifiedAnnotation identifiedAnnotation) {
 
-      Set<String> codes = new HashSet<String>();
-
+    public static LinkedHashSet<String> getOntologyConceptCodesAsLHS(IdentifiedAnnotation identifiedAnnotation) {
+      LinkedHashSet<String> codes = new LinkedHashSet<>();
       FSArray fsArray = identifiedAnnotation.getOntologyConceptArr();
       if(fsArray == null) {
         // not a umls entity, e.g. fraction annotation
         return codes;
       }
 
-      for(FeatureStructure featureStructure : fsArray.toArray()) {
+      for (FeatureStructure featureStructure : fsArray.toArray()) {
         OntologyConcept ontologyConcept = (OntologyConcept) featureStructure;
 
-        if(ontologyConcept instanceof UmlsConcept) {
+        if (ontologyConcept instanceof UmlsConcept) {
           UmlsConcept umlsConcept = (UmlsConcept) ontologyConcept;
-          String code = umlsConcept.getCui();
-          codes.add(code);
-        } else { // SNOMED or RxNorm
-          String code = ontologyConcept.getCodingScheme() + ontologyConcept.getCode();
-          codes.add(code);
+          String codeCUI = umlsConcept.getCui().toString(); // CUI
+          String codePtxt = umlsConcept.getPreferredText().toString(); // CUI preferred text
+          String codeSchText = umlsConcept.getCodingScheme().toString(); // SnomedCT, RxNorm, etc
+          String s = "\"" + codeCUI + "\",\"" + codePtxt + "\",\"" + codeSchText + "\"" + "\n";
+          codes.add(s);
+        } else {
+          String codeCUI = ontologyConcept.getCodingScheme() + ontologyConcept.getCode();
+          String s = "\"" + codeCUI + "\",\"\",\"\"" + "\n";
+          codes.add(s);
         }
       }
-
       return codes;
+
     }
+
   }
 }
