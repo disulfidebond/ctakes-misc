@@ -104,6 +104,7 @@ public class ExtractCuiSequences {
       List<String> cuis = new ArrayList<>();
 
       int currentOffset = 0;
+      int endingOffset = 0;
 
       // extract the CUIs as a sequence-preserving list
       for(IdentifiedAnnotation identifiedAnnotation : JCasUtil.select(systemView, IdentifiedAnnotation.class)) {
@@ -112,14 +113,16 @@ public class ExtractCuiSequences {
           System.out.println("annotation out of order:" + identifiedAnnotation);
         }
         currentOffset = identifiedAnnotation.getBegin();
+        String currentOffsetAsString = Integer.toString(currentOffset);
+        endingOffset = identifiedAnnotation.getEnd();
+        String endingOffsetAsString = String.valueOf(endingOffset);
 
         int polarity = identifiedAnnotation.getPolarity();
 
         for(String code : getOntologyConceptCodesAsLHS(identifiedAnnotation)) {
           // polarity -1 for negated concepts and 0 for others
-          String output = String.format("%s", (polarity == 0) ? "\"\",\"\",\"\"\n" : code); // trying out CUI and preferred text
-          String currentOffsetAsString = Integer.toString(currentOffset);
-          String outputString = output + ",\"" + currentOffsetAsString + "\"\n";
+          String output = String.format("%s", (polarity == 0) ? "\"\",\"\",\"\",\"\"\n" : code); // trying out CUI and preferred text
+          String outputString = output + ",\"" + currentOffsetAsString + "\",\"" + endingOffsetAsString + "\"\n";
           cuis.add(outputString);
         }
 
