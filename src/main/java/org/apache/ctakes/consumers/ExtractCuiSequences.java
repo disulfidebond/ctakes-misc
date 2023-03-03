@@ -117,8 +117,10 @@ public class ExtractCuiSequences {
 
         for(String code : getOntologyConceptCodesAsLHS(identifiedAnnotation)) {
           // polarity -1 for negated concepts and 0 for others
-          String output = String.format("%s", (polarity == 0) ? "\"\",\"\"\n" : code); // trying out CUI and preferred text
-          cuis.add(output);
+          String output = String.format("%s", (polarity == 0) ? "\"\",\"\",\"\"\n" : code); // trying out CUI and preferred text
+          String currentOffsetAsString = Integer.toString(currentOffset);
+          String outputString = output + ",\"" + currentOffsetAsString + "\"\n";
+          cuis.add(outputString);
         }
 
       }
@@ -159,11 +161,11 @@ public class ExtractCuiSequences {
           String codeCUI = umlsConcept.getCui().toString(); // CUI
           String codePtxt = umlsConcept.getPreferredText().toString(); // CUI preferred text
           String codeSchText = umlsConcept.getCodingScheme().toString(); // SnomedCT, RxNorm, etc
-          String s = "\"" + codeCUI + "\",\"" + codePtxt + "\",\"" + codeSchText + "\"" + "\n";
+          String s = "\"" + codeCUI + "\",\"" + codePtxt + "\",\"" + codeSchText + "\"";
           codes.add(s);
         } else {
           String codeCUI = ontologyConcept.getCodingScheme() + ontologyConcept.getCode();
-          String s = "\"" + codeCUI + "\",\"\",\"\"" + "\n";
+          String s = "\"" + codeCUI + "\",\"\",\"\"";
           codes.add(s);
         }
       }
